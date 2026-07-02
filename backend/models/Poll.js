@@ -1,14 +1,3 @@
- user: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true
-    },
-    value: {
-      type: mongoose.Schema.Types.Mixed,
-      required: true
-    },
- 
-
     creator: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
