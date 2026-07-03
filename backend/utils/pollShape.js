@@ -9,16 +9,13 @@ export const shapePoll = (poll, userId, bookmarkSet = new Set()) => {
   let results = [];
 
   if (poll.type === "rating") {
-    // distribution across 1..5 stars
     results = [1, 2, 3, 4, 5].map((star) => {
       const count = votes.filter((v) => Number(v.value) === star).length;
       return { label: `${star} Star`, star, count, percent: pct(count) };
     });
   } else if (poll.type === "open") {
-    // list of typed responses
     results = votes.map((v) => ({ text: String(v.value) }));
   } else {
-    // single / yesno / image -> count per option index
     results = (poll.options || []).map((opt, i) => {
       const count = votes.filter((v) => Number(v.value) === i).length;
       return { text: opt.text, image: opt.image, index: i, count, percent: pct(count) };
