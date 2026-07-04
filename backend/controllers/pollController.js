@@ -19,7 +19,6 @@ let options = [];
     }
 
 
-
     if (req.query.type && req.query.type !== "all")
       filter.type = req.query.type;
     if (req.query.category) filter.category = req.query.category;
