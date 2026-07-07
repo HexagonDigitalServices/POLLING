@@ -3,8 +3,6 @@ import api from "../utils/api.js";
 import { useAuth } from "../context/AuthContext.jsx";
 import { useToast } from "../components/Toast.jsx";
 
-// Loads polls from `path` and exposes vote/bookmark/edit/close/delete actions.
-// Reused by Dashboard, My Polls, Voted Polls and Bookmarks.
 export default function usePolls(path) {
   const [polls, setPolls] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,7 +29,7 @@ export default function usePolls(path) {
   const vote = async (id, value) => {
     const wasVoted = polls.find((p) => p._id === id)?.myVote != null;
     await api.post(`/polls/${id}/vote`, { value });
-    const { data } = await api.get(`/polls/${id}?noview=true`); // refetch to get results
+    const { data } = await api.get(`/polls/${id}?noview=true`); 
     replace(data);
     toast(wasVoted ? "Vote changed" : "Vote recorded");
     refresh();
