@@ -1,18 +1,3 @@
-  const { register } = useAuth();
-  const navigate = useNavigate();
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    username: "",
-    password: "",
-  });
-  const [image, setImage] = useState(null);
-  const [preview, setPreview] = useState("");
-  const [show, setShow] = useState(false);
-  const [error, setError] = useState("");
-  const [busy, setBusy] = useState(false);
-
-
           {form.password.length > 0 && (
             <div className={s.strengthContainer}>
               {[1, 2, 3, 4].map((i) => (
