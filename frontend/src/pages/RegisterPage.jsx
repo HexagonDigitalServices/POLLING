@@ -18,10 +18,8 @@
               ))}
             </div>
           )}
-     
-        <div className="pt-1">
-          <AuthButton disabled={busy}>
-            {busy ? (
+
+
               <>
                 <svg
                   className="animate-spin w-4 h-4"
@@ -44,9 +42,5 @@
                 </svg>
                 Creating account…
               </>
-            ) : (
-              "Create account →"
-            )}
-          </AuthButton>
-        </div>
+          
      
