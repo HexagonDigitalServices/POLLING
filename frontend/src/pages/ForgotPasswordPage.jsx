@@ -71,16 +71,6 @@
                 </>
               
 
-
-      {step === 2 && (
-        <OtpStep
-          email={email}
-          onSubmit={verify}
-          onResend={() => forgotPassword(email)}
-          submitText="Verify code →"
-        />
-      )}
-
       {/* Step 3 — New password */}
       {step === 3 && (
         <form onSubmit={reset} className={s.newPasswordForm}>
