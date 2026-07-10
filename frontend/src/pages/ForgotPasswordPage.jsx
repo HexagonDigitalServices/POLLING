@@ -9,41 +9,6 @@
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
 
-  const sendCode = async (e) => {
-    e.preventDefault();
-    setError("");
-    setBusy(true);
-    try {
-      await forgotPassword(email);
-      setStep(2);
-    } catch (err) {
-      setError(err.response?.data?.message || "Could not send code");
-    } finally {
-      setBusy(false);
-    }
-  };
-
-  const verify = async (code) => {
-    await verifyResetOtp({ email, otp: code });
-    setOtp(code);
-    setStep(3);
-  };
-
-  const reset = async (e) => {
-    e.preventDefault();
-    setError("");
-    if (pw !== pw2) return setError("Passwords do not match");
-    setBusy(true);
-    try {
-      await resetPassword({ email, otp, password: pw });
-      navigate("/login", { state: { reset: true } });
-    } catch (err) {
-      setError(err.response?.data?.message || "Could not reset password");
-    } finally {
-      setBusy(false);
-    }
-  };
-
   const titles = ["Reset your password", "Check your inbox", "New password"];
   const subtitles = [
     "Enter your email and we'll send you a reset code.",
