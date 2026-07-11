@@ -1,14 +1,4 @@
-  const flash = useLocation().state;
-  const notice = flash?.verified
-    ? "Email verified! You can now sign in."
-    : flash?.reset
-      ? "Password updated! Sign in with your new password."
-      : "";
 
- 
-        <div className="pt-1">
-          <button type="submit" disabled={busy} className={s.submitButton}>
-            {busy ? (
               <>
                 <svg
                   className="animate-spin w-4 h-4"
@@ -31,11 +21,4 @@
                 </svg>
                 Signing in…
               </>
-            ) : (
-              <>
-                Sign in <ArrowRight size={15} />
-              </>
-            )}
-          </button>
-        </div>
-    
+           
