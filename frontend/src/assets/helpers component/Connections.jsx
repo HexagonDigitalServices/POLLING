@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../utils/api.js";
 import { Avatar } from "./UIElements.jsx";
-import { connectionsStyles as s } from "../dummyStyles.jsx";
+import { connectionsStyles as s } from "../assets/dummyStyles";
 
 export default function Connections({ username, initialTab = "followers" }) {
   const [tab, setTab] = useState(initialTab);

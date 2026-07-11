@@ -5,7 +5,7 @@ import api from "../utils/api.js";
 import { useAuth } from "../context/AuthContext.jsx";
 import { useToast } from "./Toast.jsx";
 import { Avatar } from "./UIElements.jsx";
-import { commentsStyles as s } from "../dummyStyles.jsx";
+import { commentsStyles as s } from"../assets/dummyStyles";
 
 const ago = (date) => {
   const s = Math.floor((Date.now() - new Date(date)) / 1000);
