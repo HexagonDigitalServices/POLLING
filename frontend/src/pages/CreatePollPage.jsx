@@ -20,9 +20,7 @@ const CATEGORIES = [
   "Other",
 ];
 
-const Label = ({ children }) => (
-  <span className={s.label}>{children}</span>
-);
+const Label = ({ children }) => <span className={s.label}>{children}</span>;
 
 export default function CreatePoll() {
   const navigate = useNavigate();

@@ -19,7 +19,6 @@
             </div>
           )}
 
-
               <>
                 <svg
                   className="animate-spin w-4 h-4"
@@ -43,4 +42,3 @@
                 Creating account…
               </>
           
-     
