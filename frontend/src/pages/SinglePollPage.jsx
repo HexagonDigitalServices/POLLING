@@ -19,7 +19,7 @@
     }
   };
   useEffect(() => {
-    load(false); /* eslint-disable-next-line */
+    load(false);
   }, [id]);
 
   const vote = async (_id, value) => {
