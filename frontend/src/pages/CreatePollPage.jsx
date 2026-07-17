@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Plus, Trash2, AlertCircle, X } from "lucide-react";
 import api from "../utils/api.js";
-import { TYPE_META } from "../assets/helpers component/FilterBar.jsx";
+import { TYPE_META } from "../components/FilterBar.jsx";
 import { inputCls, Button } from "../components/UIElements.jsx";
 import { createPollStyles as s } from "../assets/dummyStyles";
 
@@ -79,7 +79,7 @@ export default function CreatePoll() {
 
         {/* Question */}
         <div>
-          <label>Question</label>
+          <Label>Question</Label>
           <textarea
             className={`${inputCls} ${s.textarea}`}
             placeholder="What do you want to ask the community?"
@@ -91,7 +91,7 @@ export default function CreatePoll() {
 
         {/* Category */}
         <div>
-          <label>Category</label>
+          <Label>Category</Label>
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
@@ -107,7 +107,7 @@ export default function CreatePoll() {
 
         {/* Poll type */}
         <div>
-          <label>Poll type</label>
+          <Label>Poll type</Label>
           <div className="flex flex-wrap gap-1.5">
             {Object.entries(TYPE_META).map(([key, { label, Icon }]) => (
               <button
@@ -127,7 +127,7 @@ export default function CreatePoll() {
         {/* Single choice options */}
         {type === "single" && (
           <div className={s.optionsContainer}>
-            <label>Options</label>
+            <Label>Options</Label>
             {options.map((o, i) => (
               <div key={i} className={s.optionInputWrapper}>
                 <input
@@ -137,7 +137,7 @@ export default function CreatePoll() {
                   onChange={(e) => setOpt(i, e.target.value)}
                 />
                 {options.length > 2 && (
-                  <button
+                  <Button
                     type="button"
                     variant="danger"
                     onClick={() =>
@@ -146,25 +146,25 @@ export default function CreatePoll() {
                     className={s.optionDeleteButton}
                   >
                     <Trash2 size={14} />
-                  </button>
+                  </Button>
                 )}
               </div>
             ))}
-            <button
+            <Button
               type="button"
               variant="ghost"
               onClick={() => setOptions([...options, ""])}
               className={s.addOptionButton}
             >
               <Plus size={13} /> Add option
-            </button>
+            </Button>
           </div>
         )}
 
         {/* Image options */}
         {type === "image" && (
           <div>
-            <label>Images (2–4)</label>
+            <Label>Images (2–4)</Label>
             <div className={s.imageGrid}>
               {images.map((f, i) => (
                 <div key={i} className={s.imageItem}>
@@ -207,9 +207,9 @@ export default function CreatePoll() {
           </div>
         )}
 
-        <button disabled={busy} className={s.submitButton}>
+        <Button disabled={busy} className={s.submitButton}>
           {busy ? "Creating…" : "Publish poll"}
-        </button>
+        </Button>
       </form>
     </div>
   );
